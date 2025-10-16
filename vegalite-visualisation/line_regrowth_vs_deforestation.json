@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Forest Disturbances vs. Regrowth in Malaysia (1990–2024)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv"
+  },
+  "width": 500,
+  "height": 300,
+  "transform": [
+    {"filter": "datum.Country == 'Malaysia'"},
+    {
+      "fold": [
+        "Total forest disturbances (degradation or deforestation)",
+        "Forest regrowth"
+      ],
+      "as": ["Metric", "Area"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "axis": {"title": "Year"}},
+        "y": {
+          "field": "Area",
+          "type": "quantitative",
+          "axis": {
+            "title": "Area (Mha or % depending on dataset)", 
+            "grid": false
+            }
+        },
+        "color": {
+          "field": "Metric",
+          "type": "nominal",
+          "title": "Forest Change Type",
+          "scale": {
+            "domain": [
+              "Forest regrowth",
+              "Total forest disturbances (degradation or deforestation)"
+            ],
+            "range": ["green", "darkblue"]
+          }
+        },
+        "tooltip": [
+          {"field": "Year", "type": "ordinal"},
+          {"field": "Metric", "type": "nominal"},
+          {"field": "Area", "type": "quantitative", "format": ".3f", "title": "Area"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{"Year": "2020"}]},
+      "mark": {"type": "rule", "strokeDash": [4, 4], "color": "black"},
+      "encoding": {"x": {"field": "Year", "type": "ordinal"}}
+    },
+    {
+      "data": {"values": [{"Year": "2020"}]},
+      "mark": {
+        "type": "text",
+        "text": "Covid-19",
+        "align": "left",
+        "baseline": "top",
+        "dx": -20,
+        "dy": -310,
+        "color": "black",
+        "fontSize": 12
+      },
+      "encoding": {"x": {"field": "Year", "type": "ordinal"}, "y": {"datum": 0}}
+    }
+  ]
+}
