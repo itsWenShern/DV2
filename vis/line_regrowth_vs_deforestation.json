@@ -4,7 +4,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv"
   },
-  "width": 500,
+  "width": "container",
   "height": 300,
   "transform": [
     {"filter": "datum.Country == 'Malaysia'"},
