@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Tree Cover Loss by State in Malaysia (2024, Threshold = 30%)",
   "data": {
-    "url": "https://raw.githubusercontent.com/itsWenShern/HwWeek10/refs/heads/main/Subnational%201%20Tree%20loss.csv"
+    "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/Subnational%201%20Tree%20loss.csv"
   },
   "transform": [
     {"filter": "datum.country === 'Malaysia'"},
