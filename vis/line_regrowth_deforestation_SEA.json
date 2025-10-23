@@ -11,20 +11,16 @@
   "params": [
     {
         "name": "country_select",
-        "value": "Indonesia",
+        "value": "Myanmar",
         "bind": {
             "input": "select",
             "name": "Select Country: ",
             "options": [
-            "Brunei",
             "Cambodia",
-            "Indonesia",
             "Laos",
             "Myanmar",
             "Philippines",
-            "Singapore",
             "Thailand",
-            "Timor-Leste",
             "Vietnam"
             ]
         }
@@ -38,8 +34,8 @@
   "height": 350,
   "transform": [
 
-{
-      "calculate": "datum.Country == 'Brunei Darussalam' ? 'Brunei' : (datum.Country == 'Viet Nam' ? 'Vietnam' : (datum.Country == \"Lao People's Democratic Republic\" ? 'Laos' : datum.Country))",
+    {
+      "calculate": "datum.Country == 'Viet Nam' ? 'Vietnam' : (datum.Country == \"Lao People's Democratic Republic\" ? 'Laos' : datum.Country)",
       "as": "Country_Cleaned"
     },
     {"filter": "datum.Country_Cleaned == country_select"},
@@ -71,6 +67,7 @@
         "y": {
           "field": "Area",
           "type": "quantitative",
+          "scale": {"domain": [0, 0.55]},
           "axis": {
             "title": "Area (Mha)", 
             "titleFontSize": 16,

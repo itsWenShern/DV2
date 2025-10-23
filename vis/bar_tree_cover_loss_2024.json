@@ -4,50 +4,76 @@
     "text": "Tree Cover Loss by State in Malaysia (2024, Threshold = 30%)",
     "font": "Times New Roman",
     "fontSize": 20
-  },  
-    "data": {
+  },
+  "data": {
     "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/Subnational%201%20Tree%20loss.csv"
   },
-  "transform": [
-    {"filter": "datum.country === 'Malaysia'"},
-    {"filter": "datum.threshold == 30"}
-  ],
   "width": "container",
   "height": 350,
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "subnational1",
-      "type": "nominal",
-      "sort": "-y",
-      "axis": {
+  "layer": [
+    {
+      "name": "Bar Chart",
+      "transform": [
+        {"filter": "datum.country === 'Malaysia'"},
+        {"filter": "datum.threshold == 30"}
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "subnational1",
+          "type": "nominal",
+          "sort": "-y",
+          "axis": {
             "title": "State",
             "titleFontSize": 16,
             "grid": false
-      }
-    },
-    "y": {
-      "field": "tc_loss_ha_2024",
-      "type": "quantitative",
-      "axis": {
+          }
+        },
+        "y": {
+          "field": "tc_loss_ha_2024",
+          "type": "quantitative",
+          "axis": {
             "title": "Tree Cover Loss (ha)",
             "titleFontSize": 16,
             "grid": false
+          }
+        },
+        "color": {
+          "condition": {
+            "test": {
+              "field": "subnational1",
+              "oneOf": ["Sarawak", "Sabah"]
+            },
+            "value": "darkblue"
+          },
+          "value": "darkgrey"
+        },
+        "tooltip": [
+          {"field": "subnational1", "type": "nominal", "title": "State"},
+          {
+            "field": "tc_loss_ha_2024",
+            "type": "quantitative",
+            "title": "Loss (ha)",
+            "format": ","
+          }
+        ]
       }
     },
-    "color": {
-      "condition": {
-        "test": {
-          "field": "subnational1",
-          "oneOf": ["Sarawak", "Sabah"]
-        },
-        "value": "darkblue"
-      },
-      "value": "darkgrey"
-    },
-    "tooltip": [
-      {"field": "subnational1", "type": "nominal", "title": "State"},
-      {"field": "tc_loss_ha_2024", "type": "quantitative", "title": "Loss (ha)", "format": ","}
-    ]
-  }
+    {
+      "name": "Annotation Text",
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "text",
+        "text": ["East Malaysia Has the highest", "Tree Cover Loss"],
+        "x": 170,
+        "y": 60,
+        "align": "center",
+        "baseline": "middle",
+        "fontWeight": "bold",
+        "fontSize": 14,
+        "font": "Open Sans",
+        "color": "black"
+      }
+    }
+  ]
 }

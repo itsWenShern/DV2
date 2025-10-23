@@ -40,6 +40,7 @@
         "y": {
           "field": "Area",
           "type": "quantitative",
+          "scale": {"domain": [0, 0.55]},
           "axis": {
             "title": "Area (Mha)", 
             "titleFontSize": 16,
