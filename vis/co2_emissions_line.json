@@ -54,8 +54,9 @@
         "text": [
             "Despite deforestation activity going down",
             "Forest Regrowth has been slowed down",
-            "CO2 emissions continued to rised over the past 2 decades",
-            "Efficiency and policy measures are needed to bend the curve"
+            "CO2 emissions continued to rised over",
+            "the past 2 decades. Efficiency and policy", 
+            "measures are needed to bend the curve."
             ],         
         "font": "Times New Roman",
         "fontSize": 14,
