@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked forest disturbance components for Malaysia (2014–2024).",
+  "data": {
+    "url": "./data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum.Country === 'Malaysia' && datum.Year >= 2014"},
+    {
+      "fold": [
+        "Degradation not followed by a deforestation",
+        "Deforestation after degradation",
+        "Conversion to plantation",
+        "Total direct deforestation"
+      ],
+      "as": ["Category", "Value"]
+    }
+  ],
+  "mark": {"type": "bar"},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "sort": "ascending",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Area (million ha)"
+    },
+    "color": {
+      "field": "Category",
+      "type": "nominal",
+      "title": "Component",
+      "sort": [
+        "Degradation not followed by a deforestation",
+        "Deforestation after degradation",
+        "Total direct deforestation"
+      ]
+    },
+    "order": {"field": "Category", "type": "nominal"},
+    "tooltip": [
+      {"field": "Year", "type": "ordinal"},
+      {"field": "Category", "type": "nominal"},
+      {"aggregate": "sum", "field": "Value", "type": "quantitative", "title": "Area (Mha)"}
+    ]
+  },
+  "config": {
+    "bar": {"cornerRadiusTopLeft": 2, "cornerRadiusTopRight": 2},
+    "legend": {"orient": "bottom"},
+    "axis": {"grid": true}
+  }
+}
