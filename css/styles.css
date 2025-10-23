@@ -2,13 +2,28 @@ body *{
     font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
-    font-weight: 900;
-    text-align: center;
-}
 
 body {
-    background-color: lightgray;
+    background-color: #e6f8d1;
+}
+
+/*  Typography  */
+
+.title-typo h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 75px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.title-typo h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 75px;
+    text-align: center;
+    margin-top: 0;
 }
 
 .page {

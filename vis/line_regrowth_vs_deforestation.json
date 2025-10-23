@@ -43,8 +43,7 @@
         },
         "tooltip": [
           {"field": "Year", "type": "ordinal"},
-          {"field": "Metric", "type": "nominal"},
-          {"field": "Area", "type": "quantitative", "format": ".3f", "title": "Area"}
+          {"field": "Area", "type": "quantitative", "format": ".3f", "title": "Area (Mha)"}
         ]
       }
     },
