@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Malaysia CO₂ emissions (2014–2024) from World Bank",
+  "title": {
+    "text": "Malaysia — CO₂ emissions per capita (2014–2024)",
+    "font": "Times New Roman",
+    "fontSize": 20
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/API_EN.GHG.CO2.PC.CE.AR5_DS2_en_csv_v2_127841.csv",
+    "format": { "type": "csv" }
+  },
+  "transform": [
+    { "filter": "datum['Country Name'] == 'Malaysia'" },
+    {
+      "fold": [
+        "2004","2005","2006","2007","2008","2009",
+        "2010","2011","2012","2013","2014","2015",
+        "2016","2017","2018","2019","2020","2021",
+        "2022","2023","2024"
+      ],
+      "as": ["YearStr", "ValueStr"]
+    },
+    { "calculate": "toNumber(datum.YearStr)", "as": "Year" },
+    { "calculate": "toNumber(datum.ValueStr)", "as": "Value" },
+    { "filter": "datum.Value != null" }
+  ],
+  "width": "container",
+  "height": 400,
+  "layer": [
+    {
+      "mark": { "type": "line", "point": true },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "quantitative",
+          "axis": { "title": "Year", "format": "d", "grid": false }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "axis": { "title": "CO₂ emissions per capita (t CO₂e)", "grid": false }
+        },
+        "tooltip": [
+          { "field": "Year", "type": "quantitative", "title": "Year" },
+          { "field": "Value", "type": "quantitative", "title": "Emissions", "format": ".2f" }
+        ]
+      }
+    },
+    {
+      "data": { "values": [ {} ] },
+      "mark": {
+        "type": "text",
+        "text": [
+            "Despite deforestation activity going down",
+            "Forest Regrowth has been slowed down",
+            "CO2 emissions continued to rised over the past 2 decades",
+            "Efficiency and policy measures are needed to bend the curve"
+            ],         
+        "font": "Times New Roman",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0
+      },
+      "encoding": {
+        "x": { "value": 500 },
+        "y": { "value": 100 },
+        "color": { "value": "black" }
+      }
+    }
+  ]
+}
