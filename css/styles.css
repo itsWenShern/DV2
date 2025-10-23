@@ -33,7 +33,7 @@ body {
 
 /* Title */
 .title-typo {
-  text-align: left;
+  text-align: center;
   margin-top: 20px; 
 }
 
@@ -54,7 +54,6 @@ body {
   
   box-shadow: 0 2px 5px black; 
 }
-
 
 
 .page {

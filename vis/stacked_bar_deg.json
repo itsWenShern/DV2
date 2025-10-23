@@ -1,6 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Stacked forest disturbance components for Malaysia (2014–2024).",
+  "description": "Stacked forest disturbance components for Malaysia (2014–2024) with annotation.",
+  "title": {
+    "text": "Forest disturbance components — Malaysia (2014–2024)",
+    "font": "Times New Roman",
+    "fontSize": 20
+  },
+  "width": "container",
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv",
     "format": {"type": "csv"}
@@ -11,46 +18,68 @@
       "fold": [
         "Degradation not followed by a deforestation",
         "Deforestation after degradation",
-        "Conversion to plantation",
+        "Forest conversion to plantation",
         "Total direct deforestation"
       ],
       "as": ["Category", "Value"]
     }
   ],
-  "mark": {"type": "bar"},
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "ordinal",
-      "sort": "ascending",
-      "axis": {"labelAngle": 0}
+  "layer": [
+    {
+      "params": [{
+        "name": "cate_selection",
+        "select": {"type": "point", "fields": ["Category"]},
+        "bind": "legend"
+      }],
+      "mark": {"type": "bar"},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "sort": "ascending", "axis": {"labelAngle": 0, "grid": false}},
+        "y": {"aggregate": "sum", "field": "Value", "type": "quantitative", "title": "Area (million ha)", "axis": {"grid": false}},
+        "color": {
+          "field": "Category", "type": "nominal", "title": "Component",
+          "sort": [
+            "Degradation not followed by a deforestation",
+            "Deforestation after degradation",
+            "Forest conversion to plantation",
+            "Total direct deforestation"
+          ],
+          "legend": {"orient": "top-right", "labelLimit": 220, "columns": 1}
+        },
+        "opacity": {"condition": {"param": "cate_selection", "value": 1}, "value": 0.25},
+        "order": {"field": "Category", "type": "nominal"},
+        "tooltip": [
+          {"field": "Year", "type": "ordinal"},
+          {"field": "Category", "type": "nominal"},
+          {"aggregate": "sum", "field": "Value", "type": "quantitative", "title": "Area (Mha)"}
+        ]
+      }
     },
-    "y": {
-      "aggregate": "sum",
-      "field": "Value",
-      "type": "quantitative",
-      "title": "Area (million ha)"
-    },
-    "color": {
-      "field": "Category",
-      "type": "nominal",
-      "title": "Component",
-      "sort": [
-        "Degradation not followed by a deforestation",
-        "Deforestation after degradation",
-        "Total direct deforestation"
-      ]
-    },
-    "order": {"field": "Category", "type": "nominal"},
-    "tooltip": [
-      {"field": "Year", "type": "ordinal"},
-      {"field": "Category", "type": "nominal"},
-      {"aggregate": "sum", "field": "Value", "type": "quantitative", "title": "Area (Mha)"}
-    ]
-  },
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "text",
+        "text": [
+            "Forest conversion to plantation decreases significantly",
+            "over the years, and overall deforestation activity decreases."
+            ],   
+        "font": "Times New Roman",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0
+      },
+      "encoding": {
+        "x": { "value": 340 },
+        "y": { "value": 50 },     
+        "color": {"value": "black"}
+      }
+    }
+  ],
   "config": {
+    "title": {"font": "Times New Roman"},
     "bar": {"cornerRadiusTopLeft": 2, "cornerRadiusTopRight": 2},
-    "legend": {"orient": "bottom"},
-    "axis": {"grid": true}
+    "axis": {"grid": false}
   }
 }

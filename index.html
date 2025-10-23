@@ -95,6 +95,13 @@
     </div>
 
     <hr>
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <div id="vis6" class="vis-container"></div>
+        </div>
+      </div>
+    <hr>
+
 
         <!-- Forest Regrowth vs Disturbances (Malaysia vs SEA) -->
     <div class="title-typo">
@@ -123,6 +130,8 @@
 
     <hr>
 
+
+
   </div> <!-- Page End -->
 
   <!-- JS to Embed Vega Charts -->
@@ -132,14 +141,17 @@
     const line2 = "./vis/line_regrowth_vs_deforestation.json";
     const map1 = "./vis/malaysia_map_tree_loss.json";
     const line2SEA = "./vis/line_regrowth_deforestation_SEA.json";
+    const stackedbar = "./vis/stacked_bar_deg.json"
 
     const embedOpts = { actions: { export: true, source: true, compiled: true, editor: true } };
 
     vegaEmbed('#vis1', line1, embedOpts).catch(console.error);
-    vegaEmbed('#vis2', bar1, { actions: true }).catch(console.error);
-    vegaEmbed('#vis3', line2, { actions: true }).catch(console.error);
-    vegaEmbed('#vis4', map1, { actions: true }).catch(console.error);
-    vegaEmbed('#vis5', line2SEA, { actions: true }).catch(console.error);
+    vegaEmbed('#vis2', bar1, embedOpts).catch(console.error);
+    vegaEmbed('#vis3', line2, embedOpts).catch(console.error);
+    vegaEmbed('#vis4', map1, embedOpts).catch(console.error);
+    vegaEmbed('#vis5', line2SEA, embedOpts).catch(console.error);
+    vegaEmbed('#vis6', stackedbar, embedOpts).catch(console.error);
+
 
   </script>
 </body>
