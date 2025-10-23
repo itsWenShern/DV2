@@ -1,7 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Annual Tree Cover Loss in Malaysian States (2015–2024)",
+  "title": {
+    "text": "Tree Cover Loss in Top 5 Largest Malaysian States (2014–2024)",
+    "font": "Times New Roman",
+    "fontSize": 20
+  },  
   "width": "container",
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/itsWenShern/HwWeek10/refs/heads/main/Subnational%201%20Tree%20loss.csv"
   },
@@ -13,7 +18,7 @@
     },
     {
       "fold": [
-        "tc_loss_ha_2015","tc_loss_ha_2016",
+        "tc_loss_ha_2014","tc_loss_ha_2015","tc_loss_ha_2016",
         "tc_loss_ha_2017","tc_loss_ha_2018","tc_loss_ha_2019","tc_loss_ha_2020",
         "tc_loss_ha_2021","tc_loss_ha_2022","tc_loss_ha_2023","tc_loss_ha_2024"
       ],
@@ -35,8 +40,24 @@
         }
       ],
       "encoding": {
-        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
-        "y": {"field": "Loss", "type": "quantitative", "title": "Tree Cover Loss (ha)"},
+        "x": {
+          "field": "Year", 
+          "type": "ordinal", 
+          "axis": {
+            "title": "Year",
+            "titleFontSize": 16,
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "Loss", 
+          "type": "quantitative", 
+          "axis": {
+            "title": "Tree Cover Loss (ha)",
+            "titleFontSize": 16,
+            "grid": false
+      }
+        },
         "color": {
           "field": "subnational1",
           "type": "nominal",
@@ -60,7 +81,10 @@
               "#882255",
               "#6699CC"
             ]
-          }
+          },
+          "legend": {
+          "orient": "top-right"
+        }
         },
         "opacity": {
           "condition": {"param": "state_selection", "value": 1},
@@ -74,7 +98,7 @@
       }
     },
         {
-      "mark": {"type": "rule", "strokeDash": [4, 4], "color": "green"},
+      "mark": {"type": "rule", "strokeDash": [4, 4], "color": "brown"},
       "encoding": {
         "x": {"datum": 2017, "type": "ordinal"}
       }
@@ -86,10 +110,9 @@
         "align": "left",
         "baseline": "top",
         "dx": 5,
-        "dy": -195,
-        "color": "green",
-        "fontSize": 12,
-        "fontWeight": "normal"
+        "dy": -300,
+        "color": "brown",
+        "fontSize": 12
       },
       "encoding": {
         "x": {"datum": 2017, "type": "ordinal"},

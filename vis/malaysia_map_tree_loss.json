@@ -2,18 +2,19 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Malaysia Tree-Cover Loss (% of 2000 Extent) (2024)",
-    "anchor": "start" 
+    "font": "Times New Roman",
+    "fontSize": 20
   },
   "width": "container",
   "height": 450,
-  "projection": {"type": "mercator", "center": [110, 4], "scale": 2600},
+  "projection": {"type": "mercator", "center": [109.5, 4], "scale": 2800},
   "layer": [
     {
       "data": {"sphere": true},
       "mark": {"type": "geoshape", "fill": "lightblue", "stroke": null}
     },
     {
-      "data": {"graticule": {"step": [5, 5]}},
+      "data": {"graticule": {"step": [3, 3]}},
       "mark": {
         "type": "geoshape",
         "stroke": "grey",
@@ -42,16 +43,23 @@
       ],
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
-        "color": {
-          "condition": {
-            "test": "datum.hasData",
-            "field": "loss_pct_2000",
-            "type": "quantitative",
-            "scale": {"scheme": "orangered"},
-            "legend": {"title": "% of 2000 extent"}
-          },
-          "value": "#808080"
+      "color": {
+        "condition": {
+          "test": "datum.hasData",
+          "field": "loss_pct_2000",
+          "type": "quantitative",
+          "scale": {"scheme": "orangered"},
+          "legend": {
+            "title": "% of 2000 extent",
+            "orient": "bottom-right",
+            "fillColor": "white",
+            "strokeColor": "#ccc",
+            "cornerRadius": 3,
+            "padding": 5
+          }
         },
+        "value": "#808080"
+      },
         "tooltip": [
           {"field": "properties.name", "title": "State"},
           {

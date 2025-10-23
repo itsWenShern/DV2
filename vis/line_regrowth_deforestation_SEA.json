@@ -1,17 +1,48 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Forest Disturbances vs. Regrowth in Malaysia (2014–2024)",
+    "text": {
+      "expr": "'Forest Disturbances vs. Regrowth in ' + country_select + ' (2014–2024)'"
+        },    
     "font": "Times New Roman",
     "fontSize": 16
   },  
+
+  "params": [
+    {
+        "name": "country_select",
+        "value": "Indonesia",
+        "bind": {
+            "input": "select",
+            "name": "Select Country: ",
+            "options": [
+            "Brunei",
+            "Cambodia",
+            "Indonesia",
+            "Laos",
+            "Myanmar",
+            "Philippines",
+            "Singapore",
+            "Thailand",
+            "Timor-Leste",
+            "Vietnam"
+            ]
+        }
+    }
+  ],
+
   "data": {
     "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv"
   },
   "width": "container",
   "height": 350,
   "transform": [
-    {"filter": "datum.Country == 'Malaysia'"},
+
+{
+      "calculate": "datum.Country == 'Brunei Darussalam' ? 'Brunei' : (datum.Country == 'Viet Nam' ? 'Vietnam' : (datum.Country == \"Lao People's Democratic Republic\" ? 'Laos' : datum.Country))",
+      "as": "Country_Cleaned"
+    },
+    {"filter": "datum.Country_Cleaned == country_select"},
     {
       "filter": "datum.Year >= 2014 && datum.Year <= 2024"
     },

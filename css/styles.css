@@ -4,30 +4,43 @@ body *{
 
 
 body {
-    background-color: #e6f8d1;
+    background-color: lightgrey;
 }
 
-/*  Typography  */
+/*  Title  */
+
+.header-typo {
+  background-color: #e6f8d1;         
+  border-radius: 15px;       
+}
+
+.header-typo h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 65px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.header-typo h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-top: -35px;
+}
 
 .title-typo h1 {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 75px;
+    font-size: 25px;
     font-weight: 800;
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.title-typo h2 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    font-weight: 800;
-    margin-bottom: 75px;
-    text-align: center;
-    margin-top: 0;
+    text-align: left;
+    padding-top: 15px;
 }
 
 .page {
-    width: 1100px;
+    width: 1000px;
     background-color: white;
     margin: auto;
     padding: 50px;
@@ -52,7 +65,7 @@ h1 {
 }
 
 .pure-g {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .small-font {

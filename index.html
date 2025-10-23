@@ -26,103 +26,117 @@
 
 <body>
   <div class="page">
-    <header class = "title-typo">
-    <h1>Deforestation in Malaysia</h1>
-    <h2 class = "title-typo"> A Decade of Change, Impact, and Conservation Efforts </h2>
-
+    <header class="header-typo">
+      <h1>Deforestation in Malaysia</h1>
+      <h2 class="header-typo"> A Decade of Change, Impact, and Conservation Efforts </h2>
     </header>
 
-    <!-- SECTION 1: 2024 Tree Cover Comparison-->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div class="description">
-          <h2>Tree Cover Loss by State (2024)</h2>
-          <p class="side-by-side">
-            This chart shows that in 2024, <strong>Sarawak</strong> and <strong>Sabah</strong> 
-            were the dominant contributors to tree cover loss in Malaysia, each losing nearly 
-            <strong>80,000 hectares</strong>. Their combined deforestation vastly exceeds that of 
-            all other states, with a significant drop to <strong>Pahang</strong>, the state with the third-highest loss.
-        </p>
+
+    <hr>
+
+    <div class="title-typo">
+
+      <h1>How Much Forest Has Been Lost, and Where?</h1>
+
+      <!-- Geospatial Map of Tree Loss -->
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <div class="description" style="text-align:center;">
+            <p>This map illustrates <strong>Malaysia's 2024 tree-cover loss</strong>,
+              highlighting the state of <strong>Melaka</strong> as having the <strong>
+                highest rate of deforestation</strong> relative to its forest area in 2000.
+              In contrast, the larger states of East Malaysia, such as Sabah and Sarawak,
+              display a comparatively <strong>lower rate of forest loss</strong> during this period.
+            </p>
+          </div>
+          <div id="vis4" class="vis-container"></div>
         </div>
       </div>
-      <div class="pure-u-1-2">
-        <div id="vis2" class="vis-container"></div>
+
+
+
+      <!-- 2024 Tree Cover Comparison -->
+      <div class="pure-g", style="align-items: center;">
+        <div class="pure-u-1-3">
+          <div class="description">
+            <p class="side-by-side">
+              This chart shows that in 2024, <strong>Sarawak</strong> and <strong>Sabah</strong>
+              were the dominant contributors to tree cover loss in Malaysia, each losing nearly
+              <strong>80,000 hectares</strong>. Their combined deforestation vastly exceeds that of
+              all other states, with a significant drop to <strong>Pahang</strong>, the state with the third-highest
+              loss.
+            </p>
+          </div>
+        </div>
+        <div class="pure-u-2-3">
+          <div id="vis2" class="vis-container"></div>
+        </div>
+      </div>
+
+
+
+      <!-- Annual Tree Loss Trend -->
+      <div class="pure-g", style="align-items: center;">
+        <div class="pure-u-2-3">
+          <div id="vis1" class="vis-container"></div>
+        </div>
+          <div class="pure-u-1-3">
+          <div class="description">
+            <p class="side-by-side">
+              From 2015 to 2024, <strong>Sarawak</strong> consistently recorded the highest tree cover loss
+              among Malaysia’s largest states. After 2020, overall tree loss began to <strong>decline</strong>,
+              suggesting improved conservation and enforcement efforts.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
     <hr>
 
-    <!-- SECTION 2: Annual Tree Loss Trend -->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div id="vis1" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-2">
-        <div class="description">
-          <h2>Annual Tree Cover Loss (2015–2024)</h2>
-          <p class="side-by-side">
-            From 2015 to 2024, <strong>Sarawak</strong> consistently recorded the highest tree cover loss 
-            among Malaysia’s largest states. After 2020, overall tree loss began to <strong>decline</strong>, 
-            suggesting improved conservation and enforcement efforts.
-          </p>
+        <!-- Forest Regrowth vs Disturbances (Malaysia vs SEA) -->
+    <div class="title-typo">
+      <h1>Forest Change: Malaysia vs Southeast Asia Countries</h1>
+
+
+	      <div style="text-align: center; font-family: 'Open Sans', sans-serif; margin-bottom: 15px; font-size: 14px;">
+        
+        <span style="display: inline-block; width: 12px; height: 12px; background-color: green; margin-right: 5px; vertical-align: middle;"></span>
+        <span style="margin-right: 20px; vertical-align: middle;">Forest regrowth</span>
+        
+        <span style="display: inline-block; width: 12px; height: 12px; background-color: darkblue; margin-right: 5px; vertical-align: middle;"></span>
+        <span style="vertical-align: middle;">Total Degradation/Deforestation</span>
+      
+      	</div>
+
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="vis3" class="vis-container"></div> <!-- Malaysia -->
+        </div>
+        <div class="pure-u-1-2">
+          <div id="vis5" class="vis-container"></div> <!-- SEA -->
         </div>
       </div>
     </div>
 
     <hr>
 
-    <!-- SECTION 3: Forest Regrowth vs Disturbances -->
-    <div class="pure-g">
-    <div class="pure-u-1-2">
-        <div class="description">
-        <h2>Forest Regrowth vs. Disturbances (1990–2024)</h2>
-        <p class="side-by-side">
-            This line chart compares total 
-            <span style="color:darkblue;"><strong>forest disturbances</strong></span> 
-            against <span style="color:green;"><strong>regrowth</strong></span>. 
-            The vertical line marks <strong>2020</strong>, when the 
-            <strong>COVID-19 pandemic</strong> temporarily reduced industrial activity 
-            and deforestation rates.
-        </p>
-        </div>
-    </div>
-    <div class="pure-u-1-2">
-        <div id="vis3" class="vis-container"></div>
-    </div>
-    </div>
-
-
-    <hr>
-
-    <!-- SECTION 4: Geospatial Map of Tree Loss -->
-    <div class="pure-g">
-      <div class="pure-u-1">
-        <div class="description" style="text-align:center;">
-          <h2>Geospatial Distribution of Tree Cover Loss</h2>
-        <p>This map illustrates <strong>Malaysia's 2024 tree-cover loss</strong>, 
-            highlighting the state of <strong>Melaka</strong> as having the <strong>
-            highest rate of deforestation</strong> relative to its forest area in 2000. 
-            In contrast, the larger states of East Malaysia, such as Sabah and Sarawak, 
-            display a comparatively <strong>lower rate of forest loss</strong> during this period.
-          </p>
-        </div>
-        <div id="vis4" class="vis-container"></div>
-      </div>
-    </div>
-
-  </div>
+  </div> <!-- Page End -->
 
   <!-- JS to Embed Vega Charts -->
   <script type="text/javascript">
-const line1 = "./vis/annual_tree_loss_line.json";
+    const line1 = "./vis/annual_tree_loss_line.json";
     const bar1 = "./vis/bar_tree_cover_loss_2024.json";
     const line2 = "./vis/line_regrowth_vs_deforestation.json";
     const map1 = "./vis/malaysia_map_tree_loss.json";
+    const line2SEA = "./vis/line_regrowth_deforestation_SEA.json";
 
-    vegaEmbed('#vis1', line1, {actions: false}).catch(console.error);
-    vegaEmbed('#vis2', bar1, {actions: false}).catch(console.error);
-    vegaEmbed('#vis3', line2, {actions: false}).catch(console.error);
-    vegaEmbed('#vis4', map1, {actions: false}).catch(console.error);
+    vegaEmbed('#vis1', line1, { actions: true }).catch(console.error);
+    vegaEmbed('#vis2', bar1, { actions: true }).catch(console.error);
+    vegaEmbed('#vis3', line2, { actions: true }).catch(console.error);
+    vegaEmbed('#vis4', map1, { actions: true }).catch(console.error);
+    vegaEmbed('#vis5', line2SEA, { actions: true }).catch(console.error);
+
   </script>
 </body>
 
