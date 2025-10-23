@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Stacked forest disturbance components for Malaysia (2014–2024).",
   "data": {
-    "url": "./data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv",
+    "url": "https://raw.githubusercontent.com/itsWenShern/DV2/refs/heads/main/data/JRC_TMF_EvolutionChanges_1990_2024_vMarch2025.csv",
     "format": {"type": "csv"}
   },
   "transform": [
