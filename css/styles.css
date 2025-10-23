@@ -7,7 +7,7 @@ body {
     background-color: lightgrey;
 }
 
-/*  Title  */
+/*  Header  */
 
 .header-typo {
   background-color: #e6f8d1;         
@@ -31,13 +31,31 @@ body {
     margin-top: -35px;
 }
 
-.title-typo h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: 800;
-    text-align: left;
-    padding-top: 15px;
+/* Title */
+.title-typo {
+  text-align: left;
+  margin-top: 20px; 
 }
+
+
+.title-typo h1 {
+  display: inline-block;     
+  padding: 15px 25px;       
+  margin-bottom: 15px;      
+  
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;       
+  
+  background-color: #f7f7f7; 
+  border-radius: 8px;       
+  border: 1px solid #e0e0e0;   
+  
+  box-shadow: 0 2px 5px black; 
+}
+
+
 
 .page {
     width: 1000px;
